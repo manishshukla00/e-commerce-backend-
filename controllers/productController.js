@@ -47,11 +47,7 @@ export const createProduct = async (req, res) => {
 
 export const getAllProduct = async (req, res) => {
   try {
-    const products = await Product.find({})
-      .populate("category")
-      .select("-photo")
-      .limit(12)
-      .sort({ createdAt: -1 });
+    const products = await Product.find({}).populate("category");
     res.status(200).send({
       success: true,
       message: "All Products",
@@ -68,9 +64,9 @@ export const getAllProduct = async (req, res) => {
 
 export const getSingleProduct = async (req, res) => {
   try {
-    const product = await Product.findOne({ slug: req.params.slug })
-      .populate("category")
-      .select("-photo");
+    const product = await Product.findOne({ slug: req.params.slug }).populate(
+      "category"
+    );
 
     res.status(200).send({
       success: true,

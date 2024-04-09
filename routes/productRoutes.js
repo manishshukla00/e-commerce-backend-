@@ -19,7 +19,8 @@ router.post(
   formidable(),
   createProduct
 );
-router.get("/get-product", getAllProduct);
+router.get("/create-product", createProduct);
+router.get("/all-products", getAllProduct);
 router.get("/get-product/:slug", getSingleProduct);
 router.get("/product-photo/:pid", productPhoto);
 router.delete("/delete-product/:pid", deleteProduct);
